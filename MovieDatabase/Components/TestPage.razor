@@ -1,0 +1,21 @@
+﻿<PageTitle>Hello</PageTitle>
+
+<h3>TestPage say "hello"</h3>
+
+And sum from 1 to 1000 equals @(GetSum())
+
+@code {
+	private int GetSum()
+	{
+		int sum = 0;
+		int from = 1;
+		int to = 1000;
+
+		for (int i = from; i <= to; i++)
+		{
+			sum += i;
+		}
+
+		return sum;
+	}
+}
