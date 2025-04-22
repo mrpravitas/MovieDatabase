@@ -21,16 +21,16 @@ else
             <EditForm method="post" Model="Movie" OnValidSubmit="UpdateMovie" FormName="edit" Enhance>
                 <DataAnnotationsValidator />
                 <ValidationSummary role="alert"/>
-                <input type="hidden" name="Movie.Id" value="@Movie.Id" />
+                <input type="hidden" name="Movie.Id" value="@Movie.Id" />   
                 <div class="mb-3">
                     <label for="title" class="form-label">Title:</label>
                     <InputText id="title" @bind-Value="Movie.Title" class="form-control" />
                     <ValidationMessage For="() => Movie.Title" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="realesedate" class="form-label">RealeseDate:</label>
-                    <InputDate id="realesedate" @bind-Value="Movie.RealeseDate" class="form-control" />
-                    <ValidationMessage For="() => Movie.RealeseDate" class="text-danger" />
+                    <label for="realesedate" class="form-label">Realese Date:</label>
+                    <InputDate id="realesedate" @bind-Value="Movie.ReleaseDate" class="form-control" />
+                    <ValidationMessage For="() => Movie.ReleaseDate" class="text-danger" />
                 </div>
                 <div class="mb-3">
                     <label for="genre" class="form-label">Genre:</label>

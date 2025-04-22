@@ -10,6 +10,7 @@ namespace MovieDatabase
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
             builder.Services.AddDbContextFactory<MovieDatabaseContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("MovieDatabaseContext") ?? throw new InvalidOperationException("Connection string 'MovieDatabaseContext' not found.")));
 
@@ -22,6 +23,13 @@ namespace MovieDatabase
                 .AddInteractiveServerComponents();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                SeedData.Initialize(services);
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
